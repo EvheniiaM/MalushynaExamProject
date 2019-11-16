@@ -1,0 +1,15 @@
+#Login
+Login.Enter.Button = xpath(".//a[@href = '/login']")
+Login.Enter.Window = xpath(".//div[@class = 'modal-dialog']")
+Login.Email.Input = xpath(".//input[@id = 'loginModalEmail']")
+Login.Password.Input = xpath(".//input[@id = 'loginModalPassword']")
+Login.RememberMe.Checkbox = xpath(".//input[@type = 'checkbox']")
+Login.Close.Button = xpath(".//button[@class= 'close']")
+Login.Submit.Button = xpath(".//button[@type = 'submit']")
+
+#UserMenu
+UserMenu.Smile.Button = xpath(".//a[@id='navbarDropdownUser']")
+UserMenu.MyProfile.Button = xpath(".//a[@href='https://kinobaza.com.ua/@studentqalight2019']")
+UserMenu.Settings.Button = xpath(".//a[@href='/settings/profile']")
+UserMenu.MyLists.Button = xpath(".//a[@href='https://kinobaza.com.ua/@studentqalight2019/lists']")
+UserMenu.Logout.Button = xpath(".//a[@href='/logout']")
