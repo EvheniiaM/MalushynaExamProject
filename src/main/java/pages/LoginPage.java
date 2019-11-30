@@ -28,7 +28,7 @@ public class LoginPage extends ParentPage {
 
 
     public LoginPage(WebDriver webDriver) {
-        super(webDriver);
+        super(webDriver, "/");
     }
 
     public void openPage() {
@@ -40,41 +40,35 @@ public class LoginPage extends ParentPage {
     }
 
     public void clickOnEnterButton() {
-        enterButton.click();
-        logger.info("Enter button was clicked");
+        actionsWithOurElements.clickOnElement(enterButton);
     }
 
     public void enterLoginIntoInputLogin(String login) {
-        loginInput.clear();
-        loginInput.sendKeys(login);
-        logger.info(login + " was inputed into input login");
+        actionsWithOurElements.enterTextIntoInput(loginInput,login);
     }
 
     public void enterPassIntoInputPassword(String password) {
-        passwordInput.clear();
-        passwordInput.sendKeys(password);
-        logger.info(password + " was inputed into input Password");
+        actionsWithOurElements.enterTextIntoInput(passwordInput, password);
     }
 
     public void clickOnSubmitButton() {
-        submitButton.click();
-        logger.info("Submit button was clicked");
+        actionsWithOurElements.clickOnElement(submitButton);
     }
 
     public boolean isEnterButtonDisplayed(){
-        try{
-            return enterButton.isDisplayed();
-        }catch (Exception e){
-            return false;
-        }
+        return actionsWithOurElements.isElementDisplayed(enterButton);
     }
 
     public boolean isAlertMessageDisplayed(){
-        try{
-            return alertMessage.isDisplayed();
-        }catch (Exception e){
-            return false;
-        }
+        return actionsWithOurElements.isElementDisplayed(alertMessage);
+    }
+
+    public void fillingLoginFormAndSubmitIt(String login, String pass) {
+        openPage();
+        clickOnEnterButton();
+        enterLoginIntoInputLogin(login);
+        enterPassIntoInputPassword(pass);
+        clickOnSubmitButton();
     }
 
 }
