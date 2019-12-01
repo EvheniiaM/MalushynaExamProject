@@ -22,6 +22,7 @@ public class AbstractParentTest {
     protected CreateListsPage createListsPage;
     protected ListsPage listsPage;
     protected SeenListPage seenListPage;
+    protected MoviesPage moviesPage;
 
     @Before
     public void setUp() throws Exception {
@@ -41,6 +42,7 @@ public class AbstractParentTest {
         createListsPage = new CreateListsPage(webDriver);
         listsPage = new ListsPage(webDriver);
         seenListPage = new SeenListPage(webDriver);
+        moviesPage = new MoviesPage(webDriver);
     }
 
     private WebDriver driverInit() throws Exception {

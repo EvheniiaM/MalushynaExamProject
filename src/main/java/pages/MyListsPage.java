@@ -17,6 +17,9 @@ public class MyListsPage extends ParentPage {
     @FindBy(xpath = ".//a[@class = 'btn btn-primary btn-block']")
     private WebElement myListsButton;
 
+    @FindBy(xpath = ".//a[@href = 'https://kinobaza.com.ua/@studentqalight2019/seenlist']")
+    private WebElement seenListButton;
+
     public MyListsPage(WebDriver webDriver, String partUrl) {
         super(webDriver, partUrl);
     }
@@ -60,5 +63,9 @@ public class MyListsPage extends ParentPage {
             }
             counter++;
         }
+    }
+
+    public void clickOnSeenListButton(){
+        actionsWithOurElements.clickOnElement(seenListButton);
     }
 }

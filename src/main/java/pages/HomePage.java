@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,8 +23,7 @@ public class HomePage extends ParentPage {
     @FindBy(xpath = ".//a[@id = 'js-showSearchBar']")
     private WebElement searchButton;
 
-//    @FindBy(xpath = ".//form[@role = 'search']")
-    @FindBy(xpath = ".//div[@class = 'container d-lg-none']/form/span/input[2]")
+    @FindBy(xpath = ".//div[@class = 'container d-none d-lg-block']/div/form/span/input[@class = 'form-control form-control-lg js-typehead tt-input']")
     private WebElement searchForm;
 
     public HomePage(WebDriver webDriver) {
@@ -33,6 +33,10 @@ public class HomePage extends ParentPage {
     public void clickOnUserButton() {
         actionsWithOurElements.clickOnElement(userButton);
     }
+
+//    public void clickOnUserButtonWithWaiting() {
+//        actionsWithOurElements.clickOnElementWithWaiting(userButton);
+//    }
 
     public void clickOnProfileButton() {
         actionsWithOurElements.clickOnElement(profileButton);
@@ -54,12 +58,32 @@ public class HomePage extends ParentPage {
         actionsWithOurElements.clickOnElement(searchButton);
     }
 
-//    public void clickOnSearchForm(){
-//        actionsWithOurElements.clickOnElement(searchForm);
+    public void clickOnSearchForm(){
+        actionsWithOurElements.clickOnElement(searchForm);
+    }
+
+    public void enterFilmTitleIntoSearchForm(String filmTitle){
+        actionsWithOurElements.enterTextIntoInput(searchForm, filmTitle);
+//        searchForm.sendKeys(Keys.ENTER);
+    }
+
+//    public void selectFilmFromSearchDropDown(String filmTitle){
+//        actionsWithOurElements.selectValueFromDropdownListWithJava(searchForm, filmTitle);
 //    }
 
-//    public void enterFilmTitleIntoSearchForm(String filmTitle){
-//        actionsWithOurElements.enterTextIntoInput(searchForm, filmTitle);
+    public void pressEnterOnSearchForm(){
+        try{
+        searchForm.sendKeys(Keys.ENTER);
+        logger.info("Enter button was pressed");
+            }catch (Exception e) {
+                    logger.error("Can not work with this element");
+                }
+    }
+
+//    public void pressEnterButton(){
+//        actionsWithOurElements.pressEnterButton();
 //    }
+
+
 
 }

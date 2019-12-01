@@ -17,7 +17,7 @@ UserMenu.Logout.Button = xpath(".//a[@href='/logout']")
 
 #HomePage
 HomePage.Search.Button = xpath(".//a[@id = 'js-showSearchBar']")
-HomePage.Search.Form = xpath(".//form[@role = 'search']")
+HomePage.Search.Form = xpath(".//div[@class = 'container d-none d-lg-block']/div/form/span/input[@class = 'form-control form-control-lg js-typehead tt-input']")
 
 
 #Settings
@@ -36,6 +36,8 @@ CreateList.Title.Input = xpath(".//input[@id = 'title']")
 CreateList.CreateList.Button = xpath(".//button[@type = 'submit']")
 CreateList.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
 
+#Titles
+Titles.TheShawshankRedemption.SeenButton = xpath(".//a[@href = '/titles/the-shawshank-redemption']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']")
 
 
 //.//a[@title = 'Christmas selection2019-11-30_21-19-47']/../../div[@class = 'dropdown float-right']

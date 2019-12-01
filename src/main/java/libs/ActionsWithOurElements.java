@@ -3,6 +3,7 @@ package libs;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -40,6 +41,16 @@ public class ActionsWithOurElements {
         }
     }
 
+//    public void clickOnElementWithWaiting(WebElement webElement) {
+//        try {
+//            webDriverWait_15.until(ExpectedConditions.elementToBeClickable(webElement));
+//            webElement.click();
+//            logger.info("Element was clicked");
+//        } catch (Exception e) {
+//            stopTestAndPrintMessage();
+//        }
+//    }
+
     public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
@@ -56,25 +67,25 @@ public class ActionsWithOurElements {
         Assert.fail("Can not work with element");
     }
 
-    public void selectValueFromDropdownList(WebElement dropDown, String value) {
-        try {
-            dropDown.click();
-            clickOnElement(".//option[text() = '" + value + "']");
-            logger.info(value + " was selected from dropdown list");
-        } catch (Exception e) {
-            stopTestAndPrintMessage();
-        }
-    }
-
-    public void selectValueFromDropdownListWithJava(WebElement dropDown, String value) {
-        try {
-            Select select = new Select(dropDown);
-            select.selectByVisibleText(value);
-            logger.info(value + " was selected from dropdown list");
-        } catch (Exception e) {
-            stopTestAndPrintMessage();
-        }
-    }
+//    public void selectValueFromDropdownList(WebElement dropDown, String value) {
+//        try {
+//            dropDown.click();
+//            clickOnElement(".//option[text() = '" + value + "']");
+//            logger.info(value + " was selected from dropdown list");
+//        } catch (Exception e) {
+//            stopTestAndPrintMessage();
+//        }
+//    }
+//
+//    public void selectValueFromDropdownListWithJava(WebElement dropDown, String value) {
+//        try {
+//            Select select = new Select(dropDown);
+//            select.selectByVisibleText(value);
+//            logger.info(value + " was selected from dropdown list");
+//        } catch (Exception e) {
+//            stopTestAndPrintMessage();
+//        }
+//    }
 
     public boolean isElementDisplayed(String locator) {
         try {
@@ -101,12 +112,49 @@ public class ActionsWithOurElements {
         }
     }
 
+    public void setStateToButton(String xpath, String state){
+        boolean isStateSelect = state.toLowerCase().equals("select");
+        boolean isStateUnselect = state.toLowerCase().equals("unselect");
+        boolean isButtonSelected = (webDriver.findElement(By.xpath(xpath))).getAttribute("data-on").equals("1");
+
+        if (isStateSelect || isStateUnselect){
+            if ((isStateSelect && isButtonSelected) || (isStateUnselect && !isButtonSelected)){
+                logger.info("Button ia already in needed state");
+            } else if ((isStateSelect && !isButtonSelected)||(isStateUnselect && isButtonSelected)){
+                clickOnElement(webDriver.findElement(By.xpath(xpath)));
+            }
+        } else{
+            logger.error("State should be only select or unselect");
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void setStateToButton(WebElement button, String state){
+        boolean isStateSelect = state.toLowerCase().equals("select");
+        boolean isStateUnselect = state.toLowerCase().equals("unselect");
+        boolean isButtonSelected = button.getAttribute("data-on").equals("1");
+
+        if (isStateSelect || isStateUnselect){
+            if ((isStateSelect && isButtonSelected) || (isStateUnselect && !isButtonSelected)){
+                logger.info("Button ia already in needed state");
+            } else if ((isStateSelect && !isButtonSelected)||(isStateUnselect && isButtonSelected)){
+                clickOnElement(button);
+            }
+        } else{
+            logger.error("State should be only select or unselect");
+            stopTestAndPrintMessage();
+        }
+    }
+
+
 //    public void pressEnterButton() {
 //        try {
-////            keys.ENTER;
+//            webDriver.findElement(By.xpath(".//html")).sendKeys(Keys.ENTER);
 //            logger.info("Enter button was pressed");
 //        } catch (Exception e) {
 //            stopTestAndPrintMessage();
 //        }
 //    }
+
+
 }
