@@ -4,12 +4,13 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.Menu;
 import parentPage.ParentPage;
 
 public class LoginPage extends ParentPage {
 
-    @FindBy(xpath = ".//a[@href = '/login']")
-    private WebElement enterButton;
+//    @FindBy(xpath = ".//a[@href = '/login']")
+//    private WebElement enterButton;
 
     @FindBy(xpath = ".//div[@class = 'modal-dialog']")
     private WebElement enterWindow;
@@ -26,6 +27,7 @@ public class LoginPage extends ParentPage {
     @FindBy(xpath = ".//div[@class = 'alert alert-danger']")
     private WebElement alertMessage;
 
+    public Menu menu;
 
     public LoginPage(WebDriver webDriver) {
         super(webDriver, "/");
@@ -39,9 +41,9 @@ public class LoginPage extends ParentPage {
         }
     }
 
-    public void clickOnEnterButton() {
-        actionsWithOurElements.clickOnElement(enterButton);
-    }
+//    public void clickOnEnterButton() {
+//        actionsWithOurElements.clickOnElement(enterButton);
+//    }
 
     public void enterLoginIntoInputLogin(String login) {
         actionsWithOurElements.enterTextIntoInput(loginInput,login);
@@ -55,9 +57,9 @@ public class LoginPage extends ParentPage {
         actionsWithOurElements.clickOnElement(submitButton);
     }
 
-    public boolean isEnterButtonDisplayed(){
-        return actionsWithOurElements.isElementDisplayed(enterButton);
-    }
+//    public boolean isEnterButtonDisplayed(){
+//        return actionsWithOurElements.isElementDisplayed(enterButton);
+//    }
 
     public boolean isAlertMessageDisplayed(){
         return actionsWithOurElements.isElementDisplayed(alertMessage);
@@ -65,7 +67,7 @@ public class LoginPage extends ParentPage {
 
     public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
-        clickOnEnterButton();
+        menu.clickOnEnterButton();
         enterLoginIntoInputLogin(login);
         enterPassIntoInputPassword(pass);
         clickOnSubmitButton();

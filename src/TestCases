@@ -1,52 +1,59 @@
 https://kinobaza.com.ua/
-https://www.imdb.com/
 
 Что есть:
-Логин
+Логин (Дописать посткондишнс)
 Изменение статуса (добавить удаление)
 Изменение аватарки
-Создание списка (нет удаления списка)
-Добавить фильм в "уже видел" (нет удаления списка)
+Создание списка
+Добавить фильм в "уже видел" (нет удаления из списка)
 
 
 Создать список
 Поставить оценку фильму (топ 100)
 Очистить историю
-
 Логаут
-Удалить список
 Добавить элемент в список
 Фильм пропадает со списка ПЕРЕГЛЯНУ ПИЗНИШЕ после того, как поставить ему оценку
 
-Логин:
-1. Открыть браузер
-2. Ввести https://kinobaza.com.ua/
-3. Нажать на кнопку Увийти в правом верхенм углу
-4. В поле Емейл ввести studentqalight2019@gmail.com
-5. В поле пароль вввести 123456789
-6. Нажать кнопку Увийти
-ОР: Окно логина закрывается. В правом углу вместо кнопки входа отображается смайл
 
-Добавление списка
-Пользователь залогинен
-1. Нажать на смайл в правом верхнем углу
-2. Нажать на Мои списки в выпадающем списке
-3. Нажать на кнопку Створити список
-4. В поле назва ввести Christmas selection
-5. В поле Опис ввести Фильмы про Рождество и Новый год
-6. Нажать на кнопку Створити список
-ФР: Надпись Успишно створено список в верхней части экрана. Кнопка Оновити сптсок вместо створити список.
-7. Нажать на Списки в хлебных крошках
-8. Нажать на Мои списки
-ФР: Переход к https://kinobaza.com.ua/@studentqalight2019/lists Отображение созданного списка
-Посткондишнс:
-1. Нажать на список
-2. Нажать на кнопку Меню напротив названия списка
-3. Нажать на Видалити в выпадающем списке
-4. Нажать на Ок в диалоговом окне
-ФР: Переход к https://kinobaza.com.ua/lists Надпись Успишно видалено список в верхней части экрана.
-5. Нажать на смайл в верхенем правом углу
-6. Нажать на выйти в выпадающем списке
+-------Valid login-------
+Preconditions:
+1. Run browser
+2. Open https://kinobaza.com.ua/
+
+Steps:
+1. Click on Enter button in the top right corner
+2. In field Email enter 'studentqalight2019@gmail.com'
+3. In field Password enter '123456789'
+4. Click on Submit button -> User menu button is present
+
+
+-------Create list-------
+Preconditions:
+1. User should be logged in
+
+Steps:
+1. Click on User Menu button in the top right corner
+2. Click on My Lists submenu -> redirect to My Lists page
+3. If and while the list with test name is displayed:
+    - Click on List Menu dropdown
+    - Click on Delete List button
+    - Accept alert
+    - Click on My Lists button
+4. Click on Create List button
+5. Enter title into Title input
+6. Click on Create List button -> Success alert is present
+7. Click on User Menu button in the top right corner
+8. Click on My Lists submenu -> Created list is displayed
+
+Postconditions:
+1. If and while the list with test name is displayed:
+    - Click on List menu dropdown
+    - Click on Delete list button
+    - Accept alert
+    - Click on My lists button
+
+
 
 Добавление статуса
 Пользователь залогинен

@@ -16,16 +16,16 @@ public class ProfileTest extends AbstractParentTest {
 
         loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
-        homePage.clickOnUserButton();
-        homePage.clickOnSettingsButton();
+        homePage.menu.clickOnUserMenu();
+        homePage.menu.clickOnSettingsButton();
 
         settingsPage.checkCurrentUrl();
         settingsPage.deleteStatus();
         settingsPage.enterStatusIntoStatusTextarea(statusText);
         settingsPage.clickOnSubmitButton();
 
-        homePage.clickOnUserButton();
-        homePage.clickOnProfileButton();
+        homePage.menu.clickOnUserMenu();
+        homePage.menu.clickOnProfileButton();
 
         Assert.assertEquals("Status was not changed", statusText, profilePage.getStatusText());
     }
@@ -40,8 +40,8 @@ public class ProfileTest extends AbstractParentTest {
     public void changeAvatar() {
         loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
-        homePage.clickOnUserButton();
-        homePage.clickOnSettingsButton();
+        homePage.menu.clickOnUserMenu();
+        homePage.menu.clickOnSettingsButton();
 
         String firstAvatarSrc = settingsPage.getAvatarSrc();
         settingsPage.addAvatar(avatarPath1);

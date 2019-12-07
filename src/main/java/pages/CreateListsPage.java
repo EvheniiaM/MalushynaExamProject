@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.Menu;
 import parentPage.ParentPage;
 
 public class CreateListsPage extends ParentPage {
@@ -15,6 +16,8 @@ public class CreateListsPage extends ParentPage {
 
     @FindBy(xpath = ".//div[@class = 'alert alert-success alert-dismissible']")
     private WebElement successAlert;
+
+    public Menu menu;
 
     public CreateListsPage(WebDriver webDriver) {
         super(webDriver, "/lists/create");

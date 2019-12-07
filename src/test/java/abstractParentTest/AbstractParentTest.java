@@ -72,15 +72,4 @@ public class AbstractParentTest {
     protected void checkExpectedResult(String message, boolean actualResult) {
         Assert.assertEquals(message, true, actualResult);
     }
-
-//    protected boolean checkCurrentUrl(String expectedUrl) {
-//        String actualUrl = webDriver.getCurrentUrl();
-//        if (actualUrl.equals(expectedUrl)) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
-
-
 }

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.Menu;
 import parentPage.ParentPage;
 
 public class MyListsPage extends ParentPage {
@@ -19,6 +20,8 @@ public class MyListsPage extends ParentPage {
 
     @FindBy(xpath = ".//a[@href = 'https://kinobaza.com.ua/@studentqalight2019/seenlist']")
     private WebElement seenListButton;
+
+    public Menu menu;
 
     public MyListsPage(WebDriver webDriver, String partUrl) {
         super(webDriver, partUrl);
@@ -55,9 +58,9 @@ public class MyListsPage extends ParentPage {
         while (isListDisplayed(listTitle)){
             myListsPage.clickOnListMenuDropDown(listTitle);
             myListsPage.clickOnDeleteListButton();
-            // добавить нажатие на ENTER!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            actionsWithOurElements.acceptAlert();
+            logger.info(counter +1 + " list was deleted");
             listsPage.clickOnMyListsButton();
-            logger.info(counter + " list was deleted");
             if (counter > 100) {
                 Assert.fail("There more then 100 lists");
             }

@@ -26,13 +26,6 @@ public class SeenListTest extends AbstractParentTest {
         myListsPage.clickOnSeenListButton();
 
         seenListPage.checkCurrentUrl();
-
         checkExpectedResult(filmTitle + " poster is not displayed" , moviesPage.isMoviePosterDisplayed(movieHrefPart));
     }
-
-    @After
-    public void deleteTheShawshankRedemptionFromSeenList(){
-        moviesPage.setStateToTheShawshankRedemptionSeenButton("unselect");
-    }
-
 }
