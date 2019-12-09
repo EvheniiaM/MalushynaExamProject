@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.yandex.qatools.htmlelements.element.TypifiedElement;
 
@@ -38,16 +37,6 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
-//    public void clickOnElementWithWaiting(WebElement webElement) {
-//        try {
-//            webDriverWait_15.until(ExpectedConditions.elementToBeClickable(webElement));
-//            webElement.click();
-//            logger.info("Element was clicked");
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
 
     private String getElementName(WebElement webElement) {
         String elementName = "";
@@ -101,18 +90,6 @@ public class ActionsWithOurElements {
         }
     }
 
-//    public boolean isElementDisplayed(String locator) {
-//        try {
-//            boolean state = webDriver.findElement(By.xpath(locator)).isDisplayed();
-//            logger.info("Is element displayed -> " + state);
-//            return state;
-//        } catch (Exception e) {
-//            logger.info("Is element displayed -> false");
-//            return false;
-//        }
-//    }
-
-
     public void clickOnElement(String xpath) {
         try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
@@ -121,14 +98,14 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void clearInput(WebElement input) {
-        try {
-            input.clear();
-            logger.info("Input was cleared");
-        } catch (Exception e) {
-            stopTestAndPrintMessage();
-        }
-    }
+//    public void clearInput(WebElement input) {
+//        try {
+//            input.clear();
+//            logger.info("Input was cleared");
+//        } catch (Exception e) {
+//            stopTestAndPrintMessage();
+//        }
+//    }
 
     public void setStateToButton(String xpath, String state) {
         boolean isStateSelect = state.toLowerCase().equals("select");
@@ -147,22 +124,22 @@ public class ActionsWithOurElements {
         }
     }
 
-    public void setStateToButton(WebElement button, String state) {
-        boolean isStateSelect = state.toLowerCase().equals("select");
-        boolean isStateUnselect = state.toLowerCase().equals("unselect");
-        boolean isButtonSelected = button.getAttribute("data-on").equals("1");
-
-        if (isStateSelect || isStateUnselect) {
-            if ((isStateSelect && isButtonSelected) || (isStateUnselect && !isButtonSelected)) {
-                logger.info("Button ia already in needed state");
-            } else if ((isStateSelect && !isButtonSelected) || (isStateUnselect && isButtonSelected)) {
-                clickOnElement(button);
-            }
-        } else {
-            logger.error("State should be only select or unselect");
-            stopTestAndPrintMessage();
-        }
-    }
+//    public void setStateToButton(WebElement button, String state) {
+//        boolean isStateSelect = state.toLowerCase().equals("select");
+//        boolean isStateUnselect = state.toLowerCase().equals("unselect");
+//        boolean isButtonSelected = button.getAttribute("data-on").equals("1");
+//
+//        if (isStateSelect || isStateUnselect) {
+//            if ((isStateSelect && isButtonSelected) || (isStateUnselect && !isButtonSelected)) {
+//                logger.info("Button ia already in needed state");
+//            } else if ((isStateSelect && !isButtonSelected) || (isStateUnselect && isButtonSelected)) {
+//                clickOnElement(button);
+//            }
+//        } else {
+//            logger.error("State should be only select or unselect");
+//            stopTestAndPrintMessage();
+//        }
+//    }
 
 
     public void acceptAlert() {
@@ -176,14 +153,29 @@ public class ActionsWithOurElements {
         }
     }
 
-//    public void pressEnterButton() {
-//        try {
-//            webDriver.findElement(By.xpath(".//html")).sendKeys(Keys.ENTER);
-//            logger.info("Enter button was pressed");
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
+    public void pressEnterOnForm(WebElement form){
+        try{
+            form.sendKeys(Keys.ENTER);
+            logger.info("Enter button was pressed");
+        }catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
 
+    public void setStateToCheckBox(WebElement checkBox, String state){
+        boolean isStateCheck = state.toLowerCase().equals("check");
+        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
+        boolean isCheckBoxSelected = checkBox.isSelected();
 
+        if (isStateCheck || isStateUnCheck){
+            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)){
+                logger.info("Checkbox ia already in needed state");
+            } else if ((isStateCheck && !isCheckBoxSelected)||(isStateUnCheck && isCheckBoxSelected)){
+                clickOnElement(checkBox);
+            }
+        } else{
+            logger.error("State should be only check or uncheck");
+            stopTestAndPrintMessage();
+        }
+    }
 }

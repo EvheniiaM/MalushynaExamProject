@@ -3,29 +3,44 @@ package listsTests;
 import abstractParentTest.AbstractParentTest;
 import org.junit.After;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
 
 public class SeenListTest extends AbstractParentTest {
 
     private final String filmTitle = "The Shawshank Redemption";
-    private final String movieHrefPart = "the-shawshank-redemption";
 
     @Test
     public void addFilmToSeenList() {
         loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
-        homePage.clickOnSearchButton();
-        homePage.enterFilmTitleIntoSearchForm(filmTitle);
-        homePage.pressEnterOnSearchForm();
+        homePage.menu.clickOnUserMenu();
+        homePage.menu.clickOnMyListsButton();
 
-        moviesPage.setStateToMovieSeenButton(movieHrefPart, "select");
-        moviesPage.clickOnListsButton();
-
-        listsPage.clickOnMyListsButton();
-
-        myListsPage.clickOnSeenListButton();
+        myListsPage.checkCurrentUrl();
+        myListsPage.listsMenu.clickOnSeenListButton();
 
         seenListPage.checkCurrentUrl();
-        checkExpectedResult(filmTitle + " poster is not displayed" , moviesPage.isMoviePosterDisplayed(movieHrefPart));
+        seenListPage.setStatusNotSeenToMovieIfItIsInList(filmTitle);
+
+        checkExpectedResult("Movie is still in the list",!moviesPage.isMoviePosterDisplayed(filmTitle));
+
+        seenListPage.menu.clickOnSearchButton();
+        seenListPage.enterFilmTitleIntoSearchForm(filmTitle);
+        seenListPage.pressEnterOnSearchForm();
+
+        moviesPage.setStateToMovieSeenButton(filmTitle, "select");
+        moviesPage.menu.clickOnListsButton();
+
+        listsPage.checkCurrentUrl();
+        listsPage.clickOnMyListsButton();
+
+        myListsPage.listsMenu.clickOnSeenListButton();
+
+        seenListPage.checkCurrentUrl();
+        checkExpectedResult(filmTitle + " poster is not displayed" , moviesPage.isMoviePosterDisplayed(filmTitle));
+    }
+
+    @After
+    public void setStatusNotSeenToMovie() {
+        seenListPage.setStatusNotSeenToMovieIfItIsInList(filmTitle);
     }
 }

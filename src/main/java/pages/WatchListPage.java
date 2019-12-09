@@ -7,7 +7,7 @@ import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
 import parentPage.ParentPage;
 
-public class SeenListPage extends ParentPage {
+public class WatchListPage extends ParentPage {
 
     @FindBy(xpath = ".//div[@class = 'container d-none d-lg-block']/div/form/span/input[@class = 'form-control form-control-lg js-typehead tt-input']")
     private WebElement searchForm;
@@ -15,8 +15,8 @@ public class SeenListPage extends ParentPage {
     public Menu menu;
     public ListsMenu listsMenu;
 
-    public SeenListPage(WebDriver webDriver) {
-        super(webDriver, "/@studentqalight2019/seenlist");
+    public WatchListPage(WebDriver webDriver) {
+        super(webDriver, "/@studentqalight2019/watchlist");
     }
 
     public void enterFilmTitleIntoSearchForm(String filmTitle){
@@ -27,14 +27,22 @@ public class SeenListPage extends ParentPage {
         actionsWithOurElements.pressEnterOnForm(searchForm);
     }
 
-    public void setStatusNotSeenToMovieIfItIsInList(String filmTitle) {
+    public void addMovieIfItIsNotInList(String filmTitle){
         MoviesPage moviesPage = new MoviesPage(webDriver);
-        if(moviesPage.isMoviePosterDisplayed(filmTitle.toLowerCase().replace(" ", "-"))){
-            moviesPage.setStateToMovieSeenButton(filmTitle.toLowerCase().replace(" ", "-"), "unselect");
-            logger.info("Status was set to 'not seen'");
-            listsMenu.clickOnSeenListButton();
+        ListsPage listsPage = new ListsPage(webDriver);
+        if(!moviesPage.isMoviePosterDisplayed(filmTitle)){
+            menu.clickOnSearchButton();
+            enterFilmTitleIntoSearchForm(filmTitle);
+            pressEnterOnSearchForm();
+            moviesPage.setStateToMovieWatchButton(filmTitle, "select");
+            menu.clickOnListsButton();
+            listsPage.clickOnMyListsButton();
+            listsPage.listsMenu.clickOnWatchListButton();
         }else{
-            logger.info("Movie is not in list");
+            return;
         }
+
+
+
     }
 }

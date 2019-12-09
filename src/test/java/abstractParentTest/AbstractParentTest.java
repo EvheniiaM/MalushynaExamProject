@@ -23,15 +23,14 @@ public class AbstractParentTest {
     protected ListsPage listsPage;
     protected SeenListPage seenListPage;
     protected MoviesPage moviesPage;
+    protected WatchListPage watchListPage;
 
     @Before
     public void setUp() throws Exception {
-//        File file = new File("./src/drivers/chromedriver");
-//        System.setProperty("webdriver.chrome.driver", file.getAbsolutePath());
-//        webDriver = new ChromeDriver();
+
         webDriver = driverInit();
 
-        webDriver.manage().window().maximize(); //открыли на весь экран
+        webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(webDriver);
@@ -43,6 +42,7 @@ public class AbstractParentTest {
         listsPage = new ListsPage(webDriver);
         seenListPage = new SeenListPage(webDriver);
         moviesPage = new MoviesPage(webDriver);
+        watchListPage = new WatchListPage(webDriver);
     }
 
     private WebDriver driverInit() throws Exception {

@@ -1,17 +1,8 @@
-https://kinobaza.com.ua/
 
-Что есть:
 Логин (Дописать посткондишнс)
-Изменение статуса (добавить удаление)
-Изменение аватарки
-Создание списка
-Добавить фильм в "уже видел" (нет удаления из списка)
-
-
-Создать список
 Поставить оценку фильму (топ 100)
 Очистить историю
-Логаут
+
 Добавить элемент в список
 Фильм пропадает со списка ПЕРЕГЛЯНУ ПИЗНИШЕ после того, как поставить ему оценку
 
@@ -26,6 +17,18 @@ Steps:
 2. In field Email enter 'studentqalight2019@gmail.com'
 3. In field Password enter '123456789'
 4. Click on Submit button -> User menu button is present
+
+
+-------Invalid login-------
+Preconditions:
+1. Run browser
+2. Open https://kinobaza.com.ua/
+
+Steps:
+1. Click on Enter button in the top right corner
+2. In field Email enter ''
+3. In field Password enter ''
+4. Click on Submit button -> Enter button and alert message are displayed
 
 
 -------Create list-------
@@ -47,31 +50,65 @@ Steps:
 8. Click on My Lists submenu -> Created list is displayed
 
 Postconditions:
-1. If and while the list with test name is displayed:
-    - Click on List menu dropdown
-    - Click on Delete list button
-    - Accept alert
-    - Click on My lists button
+1. Click on List menu dropdown
+2. Click on Delete list button
+3. Accept alert
 
 
+-------Add Film to Seen List-------
+Preconditions:
+1. User should be logged in
 
-Добавление статуса
-Пользователь залогинен
-1. Нажать на смайл в правом верхнем углу
-2. Нажать на Налаштування в выпадающем списке
-3. В поле статус ввести С наступающим!
-4. Нажать на кнопку Зберегти
-ФР: Успішно оновлено профіль в верхней части экрана
-5. Нажать на смайл в правом верхнем углу
-6. Нажать на Мий профиль
-ФР: Переход к https://kinobaza.com.ua/@studentqalight2019 Отображение статуса.
-Посткондишнс:
-1. Нажать на смайл в правом верхнем углу
-2. Нажать на Налаштування в выпадающем списке
-3. Удалить текст с поля Статус
-4. Нажать на кнопку Зберегти
-5. Нажать на смайл в верхенем правом углу
-6. Нажать на выйти в выпадающем списке
+Steps:
+1. Click on User Menu button in the top right corner
+2. Click on My Lists submenu -> redirect to My Lists page
+3. Click on Seen List button in Lists menu -> redirect to Seen List page
+4. If test movie is in the list:
+    - Click on movies Seen button
+    - Click on Seen List button in Lists menu -> redirect to Seen List page, test movie is not in the list
+5. Click on Search button
+5. Enter film title into Search form
+6. Press enter
+7. Click on movie Seen button
+8. Click on Lists button in the top menu -> redirect to Lists Page
+9. Click on My Lists button
+10. Click on Seen List button in Lists menu -> Movie poster is displayed
+
+Postconditions:
+1. Click on movie Seen button
+
+
+-------Change Status-------
+Preconditions:
+1. User should be logged in
+
+Steps:
+1. Click on User Menu button in the top right corner
+2. Click on Settings in User menu -> redirect to Settings Page
+3. Enter status into Status text area
+4. Click on Submit button -> Success alert is present
+5. Click on User Menu button in the top right corner
+6. Click on Profile in User menu -> Status was changed
+
+Postconditions:
+1. Click on User Menu button in the top right corner
+2. Click on Settings in User menu
+3. Clear Status text area
+4. Click on Submit button
+
+
+-------Change Avatar-------
+Preconditions:
+1. User should be logged in
+
+Steps:
+1. Click on User Menu button in the top right corner
+2. Click on Settings in User menu -> redirect to Settings Page
+3. Click on Select button
+4. Select file
+5. Click Open button
+6. Click on Submit button in Settings form -> Success alert is present, Avatar was changed
+
 
 
 Фильм пропадает со списка ПЕРЕГЛЯНУ ПИЗНИШЕ после того, как поставить ему оценку

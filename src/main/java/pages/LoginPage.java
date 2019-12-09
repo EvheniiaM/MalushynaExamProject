@@ -9,9 +9,6 @@ import parentPage.ParentPage;
 
 public class LoginPage extends ParentPage {
 
-//    @FindBy(xpath = ".//a[@href = '/login']")
-//    private WebElement enterButton;
-
     @FindBy(xpath = ".//div[@class = 'modal-dialog']")
     private WebElement enterWindow;
 
@@ -41,10 +38,6 @@ public class LoginPage extends ParentPage {
         }
     }
 
-//    public void clickOnEnterButton() {
-//        actionsWithOurElements.clickOnElement(enterButton);
-//    }
-
     public void enterLoginIntoInputLogin(String login) {
         actionsWithOurElements.enterTextIntoInput(loginInput,login);
     }
@@ -56,10 +49,6 @@ public class LoginPage extends ParentPage {
     public void clickOnSubmitButton() {
         actionsWithOurElements.clickOnElement(submitButton);
     }
-
-//    public boolean isEnterButtonDisplayed(){
-//        return actionsWithOurElements.isElementDisplayed(enterButton);
-//    }
 
     public boolean isAlertMessageDisplayed(){
         return actionsWithOurElements.isElementDisplayed(alertMessage);

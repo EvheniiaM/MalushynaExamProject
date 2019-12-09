@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.Menu;
 import parentPage.ParentPage;
 
 public class SettingsPage extends ParentPage {
@@ -19,9 +20,13 @@ public class SettingsPage extends ParentPage {
     @FindBy(xpath = ".//form[@enctype = 'multipart/form-data']/img")
     private WebElement avatarImage;
 
+    @FindBy(xpath = ".//input[@name= 'remove_watchlist_after_rate']")
+    private WebElement removeFromWachListAfterRateCheckbox;
+
     @FindBy(xpath = ".//div[@class = 'alert alert-success alert-dismissible']")
     private WebElement successAlert;
 
+    public Menu menu;
 
     public SettingsPage(WebDriver webDriver) {
         super(webDriver, "/settings/profile");
@@ -48,7 +53,16 @@ public class SettingsPage extends ParentPage {
     }
 
     public void deleteStatus() {
-        actionsWithOurElements.clearInput(statusTextarea);
-        clickOnSubmitButton();
+        try {
+            statusTextarea.clear();
+            clickOnSubmitButton();
+            logger.info("Status was cleared");
+        }catch (Exception e){
+            logger.error("Can not work with element");
+        }
+    }
+
+    public void setStateToRemoveFromWachListAfterRateCheckbox(String expectedState){
+        actionsWithOurElements.setStateToCheckBox(removeFromWachListAfterRateCheckbox, "check");
     }
 }

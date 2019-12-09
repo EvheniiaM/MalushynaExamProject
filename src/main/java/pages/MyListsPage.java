@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
 import parentPage.ParentPage;
 
@@ -15,13 +16,8 @@ public class MyListsPage extends ParentPage {
     @FindBy(xpath = ".//button[@class = 'dropdown-item js-delete-item']")
     private WebElement deleteListButton;
 
-    @FindBy(xpath = ".//a[@class = 'btn btn-primary btn-block']")
-    private WebElement myListsButton;
-
-    @FindBy(xpath = ".//a[@href = 'https://kinobaza.com.ua/@studentqalight2019/seenlist']")
-    private WebElement seenListButton;
-
     public Menu menu;
+    public ListsMenu listsMenu;
 
     public MyListsPage(WebDriver webDriver, String partUrl) {
         super(webDriver, partUrl);
@@ -33,10 +29,6 @@ public class MyListsPage extends ParentPage {
 
     public void clickOnCreateListButton() {
         actionsWithOurElements.clickOnElement(createListButton);
-    }
-
-    public void clickOnMyListsButton(){
-        actionsWithOurElements.clickOnElement(myListsButton);
     }
 
     public boolean isListDisplayed(String listTitle) {
@@ -53,11 +45,10 @@ public class MyListsPage extends ParentPage {
 
     public void deleteListUntilPresent(String listTitle) {
         int counter = 0;
-        MyListsPage myListsPage = new MyListsPage(webDriver);
         ListsPage listsPage = new ListsPage(webDriver);
         while (isListDisplayed(listTitle)){
-            myListsPage.clickOnListMenuDropDown(listTitle);
-            myListsPage.clickOnDeleteListButton();
+            clickOnListMenuDropDown(listTitle);
+            clickOnDeleteListButton();
             actionsWithOurElements.acceptAlert();
             logger.info(counter +1 + " list was deleted");
             listsPage.clickOnMyListsButton();
@@ -66,9 +57,5 @@ public class MyListsPage extends ParentPage {
             }
             counter++;
         }
-    }
-
-    public void clickOnSeenListButton(){
-        actionsWithOurElements.clickOnElement(seenListButton);
     }
 }

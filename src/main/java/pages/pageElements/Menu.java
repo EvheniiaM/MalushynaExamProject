@@ -1,6 +1,5 @@
 package pages.pageElements;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import ru.yandex.qatools.htmlelements.element.Button;
 import ru.yandex.qatools.htmlelements.element.Link;
@@ -30,6 +29,9 @@ public class Menu extends CommonActionWithElements {
 //    @FindBy(xpath = ".//a[@href= '/forum']")
 //    private Link forumButton;
 
+    @FindBy(xpath = ".//a[@id = 'js-showSearchBar']")
+    private Button searchButton;
+
 //    @FindBy(xpath = ".//a[@href= '/notifications']")
 //    private Link notificationsButton;
 
@@ -47,6 +49,10 @@ public class Menu extends CommonActionWithElements {
 
     @FindBy(xpath = ".//a[@href='https://kinobaza.com.ua/@studentqalight2019/lists']")
     private Link myListsButton;
+
+    public void clickOnListsButton(){
+        actionsWithOurElements.clickOnElement(listsButton);
+    }
 
     public void clickOnEnterButton() {
         actionsWithOurElements.clickOnElement(enterButton);
@@ -66,6 +72,10 @@ public class Menu extends CommonActionWithElements {
 
     public void clickOnMyListsButton() {
         actionsWithOurElements.clickOnElement(myListsButton);
+    }
+
+    public void clickOnSearchButton(){
+        actionsWithOurElements.clickOnElement(searchButton);
     }
 
     public boolean isEnterButtonDisplayed() {
