@@ -1,13 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
 import parentPage.ParentPage;
-
-import java.awt.*;
 
 public class MoviesPage extends ParentPage {
 
@@ -16,6 +13,7 @@ public class MoviesPage extends ParentPage {
 //    private WebElement deleteRatingButton;
 
     public Menu menu;
+
 
     public MoviesPage(WebDriver webDriver) {
         super(webDriver, "/movies");
@@ -38,10 +36,30 @@ public class MoviesPage extends ParentPage {
 //    }
 
     public void rateFilm(String filmTitle, String rating){
-        actionsWithOurElements.clickOnElement(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) +"']/../../div[@itemprop = 'aggregateRating']/div[5]/div/i[@data-value = '" + rating + "']");
+        actionsWithOurElements.clickOnElement(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) +"']/../../div[@itemprop = 'aggregateRating']/div/div/i[@data-value = '" + rating + "']");
     }
 
-//    public String getFilmHrefPart(String filmTitle){
-//        return filmTitle.toLowerCase().replace(" ", "-");
+//    public void deleteRate(String filmTitle){
+//        actionsWithOurElements.deleteMovieRating(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) +"']/../../div[@itemprop = 'aggregateRating']/div/div/button");
 //    }
-}
+
+    public void deleteMovieRating(String filmTitle){
+        WebElement deleteRatingButton = webDriver.findElement(By.xpath(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) + "']/../../div[@itemprop = 'aggregateRating']/div/div/button"));
+        boolean isRatingSet = actionsWithOurElements.isElementDisplayed(deleteRatingButton);
+        if (isRatingSet){
+            actionsWithOurElements.clickOnElement(deleteRatingButton);
+            logger.info("Rating was deleted");
+        }else{
+            logger.info("Rating is not set");
+        }
+    }
+
+//    @FindBy(xpath = ".//a[@href = '/titles/home-alone']/../../div[@itemprop = 'aggregateRating']/div/div/button")
+//    private WebElement xButton;
+//
+//    public void isElementDisplayedTest(){
+//        actionsWithOurElements.isElementDisplayed(xButton);
+    }
+
+
+

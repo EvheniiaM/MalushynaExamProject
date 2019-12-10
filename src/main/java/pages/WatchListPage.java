@@ -35,11 +35,12 @@ public class WatchListPage extends ParentPage {
             enterFilmTitleIntoSearchForm(filmTitle);
             pressEnterOnSearchForm();
             moviesPage.setStateToMovieWatchButton(filmTitle, "select");
+            logger.info("Movie was added to watchlist");
             menu.clickOnListsButton();
             listsPage.clickOnMyListsButton();
             listsPage.listsMenu.clickOnWatchListButton();
         }else{
-            return;
+            logger.info("Movie is already in the list");
         }
 
 

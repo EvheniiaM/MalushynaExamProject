@@ -12,22 +12,28 @@ public class WatchListTest extends AbstractParentTest {
         loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
         homePage.menu.clickOnUserMenu();
-        homePage.menu.clickOnSettingsButton();
-
-        settingsPage.checkCurrentUrl();
-        settingsPage.setStateToRemoveFromWachListAfterRateCheckbox("check");
-        settingsPage.clickOnSubmitButton();
-        checkExpectedResult("Success alert is not present", settingsPage.isSuccessAlertDisplayed());
-        settingsPage.menu.clickOnUserMenu();
-        settingsPage.menu.clickOnMyListsButton();
+        homePage.menu.clickOnMyListsButton();
 
         myListsPage.checkCurrentUrl();
         myListsPage.listsMenu.clickOnWatchListButton();
 
         watchListPage.checkCurrentUrl();
         watchListPage.addMovieIfItIsNotInList(filmTitle);
+        moviesPage.deleteMovieRating(filmTitle);
+        watchListPage.menu.clickOnUserMenu();
+        watchListPage.menu.clickOnSettingsButton();
 
-        moviesPage.rateFilm(filmTitle, "2");
+        settingsPage.checkCurrentUrl();
+        settingsPage.setStateToRemoveFromWatchListAfterRateCheckbox("check");
+        settingsPage.clickOnSubmitButton();
+        checkExpectedResult("Success alert is not present", settingsPage.isSuccessAlertDisplayed());
+        settingsPage.menu.clickOnUserMenu();
+        settingsPage.menu.clickOnMyListsButton();
 
+        myListsPage.listsMenu.clickOnWatchListButton();
+        moviesPage.rateFilm(filmTitle, "7");
+        watchListPage.listsMenu.clickOnWatchListButton();
+
+        checkExpectedResult("Movie is still in the watch list",!moviesPage.isMoviePosterDisplayed(filmTitle));
     }
 }

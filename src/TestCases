@@ -1,12 +1,3 @@
-
-Логин (Дописать посткондишнс)
-Поставить оценку фильму (топ 100)
-Очистить историю
-
-Добавить элемент в список
-Фильм пропадает со списка ПЕРЕГЛЯНУ ПИЗНИШЕ после того, как поставить ему оценку
-
-
 -------Valid login-------
 Preconditions:
 1. Run browser
@@ -110,32 +101,40 @@ Steps:
 6. Click on Submit button in Settings form -> Success alert is present, Avatar was changed
 
 
+-------Movie disappears from Watch List after rate-------
+Preconditions:
+1. User should be logged in
 
-Фильм пропадает со списка ПЕРЕГЛЯНУ ПИЗНИШЕ после того, как поставить ему оценку
-Пользователь залогинен
-1. Нажать на смайл в верхней части экрана
-2. Нажать на Налаштування в выпадающем списке
-3. Установить чекбокс Після оцінки, прибрати зі списку "Перегляну пізніше"
-4. Нажать на кнопку Зберегти
-5. В поле поиска ввести Втеча з Шоушенка
-6. Нажать на пробел
-7. Нажать на значок Переглянуты пизнише под банером фильма Втеча з Шоушенка
-8. Нажать на смайл в вверхней части экрана
-9. Нажать на Мои списки в выпадающем списке
-10. Нажать на список Переглянуты пизнише
-11. Поставить фильму оценку 10
-12. Нажать на список Переглянуты пизнише
-ФР: В списке нет записей. (Под банером нет значка, фильм в списке Бачив, Оцинки фильмив)
-Посткондишнс:
-1. Нажать на список Бачив
-2. Нажать на Видалити оцинку для фильма Втеча з Шоушенка
-3. Надать на значок Бачив под банером фильма Втеча з Шоушенка
-4. Нажать на смайл в верхней части экрана
-5. Нажать на Налаштування в выпадающем списке
-6. Снять чекбокс Після оцінки, прибрати зі списку "Перегляну пізніше"
-7. Нажать на кнопку Зберегти
-8. Нажать на смайл в верхенем правом углу
-9. Нажать на выйти в выпадающем списке
+Steps:
+1. Click on User Menu button in the top right corner
+2. Click on My Lists submenu -> redirect to My Lists page
+3. Click on Watch List button in lists menu -> redirect to Watch List page
+4. If test movie is not in list:
+    - Click on Search button
+    - Enter film title into Search form
+    - Press enter
+    - Click on movie watch button
+    - Click on Lists button in the top menu
+    - Click on My Lists button
+    - Click on Watch List button in lists menu
+5. Delete movie rating
+6. Click on User Menu button in the top right corner
+7. Click on Settings submenu -> redirect to Settings page
+8. Check 'Remove from Watch List after rate' checkbox
+9. Click on Submit button
+10. Click on User Menu button in the top right corner
+11. Click on My Lists submenu
+12. Click on Watch List button in lists menu
+13. Rate movie
+14. Click on Watch List button in lists menu -> Movie poster is not displayed
+
+
+
+
+
+
+
+
 
 
 

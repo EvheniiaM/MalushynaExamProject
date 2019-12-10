@@ -30,7 +30,7 @@ public class ActionsWithOurElements {
 
     public void clickOnElement(WebElement webElement) {
         try {
-            webDriverWait_10.until(ExpectedConditions.elementToBeClickable(webElement));
+            webDriverWait_15.until(ExpectedConditions.elementToBeClickable(webElement));
             webElement.click();
             logger.info("Element was clicked " + getElementName(webElement));
         } catch (Exception e) {
@@ -124,6 +124,17 @@ public class ActionsWithOurElements {
         }
     }
 
+//    public void deleteMovieRating(String filmTitle){
+//        WebElement deleteRatingButton = webDriver.findElement(By.xpath(".//a[@href = '/titles/" + filmTitle + "']/../../div[@itemprop = 'aggregateRating']/div/div/button"));
+//        boolean isRatingSet = isElementDisplayed(deleteRatingButton);
+//        if (isRatingSet){
+//            clickOnElement(deleteRatingButton);
+//            logger.info("Rating was deleted");
+//        }else{
+//            logger.info("Rating is not set");
+//        }
+//    }
+
 //    public void setStateToButton(WebElement button, String state) {
 //        boolean isStateSelect = state.toLowerCase().equals("select");
 //        boolean isStateUnselect = state.toLowerCase().equals("unselect");
@@ -169,7 +180,7 @@ public class ActionsWithOurElements {
 
         if (isStateCheck || isStateUnCheck){
             if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)){
-                logger.info("Checkbox ia already in needed state");
+                logger.info("Checkbox is already in needed state");
             } else if ((isStateCheck && !isCheckBoxSelected)||(isStateUnCheck && isCheckBoxSelected)){
                 clickOnElement(checkBox);
             }
