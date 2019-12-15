@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,15 +24,17 @@ public class CreateListsPage extends ParentPage {
         super(webDriver, "/lists/create");
     }
 
+    @Step
     public void enterTitleIntoTitleInput(String title) {
         actionsWithOurElements.enterTextIntoInput(titleInput, title);
     }
 
+    @Step
     public void clickOnCreateListButton(){
         actionsWithOurElements.clickOnElement(createListButton);
     }
 
-
+    @Step
     public boolean isSuccessAlertDisplayed(){
         return actionsWithOurElements.isElementDisplayed(successAlert);
     }

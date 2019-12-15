@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,30 +22,31 @@ public class MyListsPage extends ParentPage {
     public ListsMenu listsMenu;
     public MovieBlock movieBlock;
 
-    public MyListsPage(WebDriver webDriver, String partUrl) {
-        super(webDriver, partUrl);
-    }
-
     public MyListsPage(WebDriver webDriver) {
         super(webDriver, "/@studentqalight2019/lists");
     }
 
+    @Step
     public void clickOnCreateListButton() {
         actionsWithOurElements.clickOnElement(createListButton);
     }
 
+    @Step
     public boolean isListDisplayed(String listTitle) {
         return actionsWithOurElements.isElementDisplayed(".//a[@title ='" + listTitle + "']");
     }
 
+    @Step
     public void clickOnListMenuDropDown(String listTitle) {
         actionsWithOurElements.clickOnElement(".//a[@title = '" + listTitle + "']/../../div[@class = 'dropdown float-right']");
     }
 
+    @Step
     public void clickOnDeleteListButton(){
         actionsWithOurElements.clickOnElement(deleteListButton);
     }
 
+    @Step
     public void deleteListUntilPresent(String listTitle) {
         int counter = 0;
         ListsPage listsPage = new ListsPage(webDriver);

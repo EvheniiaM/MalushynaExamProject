@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,14 +22,17 @@ public class SeenListPage extends ParentPage {
         super(webDriver, "/@studentqalight2019/seenlist");
     }
 
+    @Step
     public void enterFilmTitleIntoSearchForm(String filmTitle){
         actionsWithOurElements.enterTextIntoInput(searchForm, filmTitle);
     }
 
+    @Step
     public void pressEnterOnSearchForm(){
         actionsWithOurElements.pressEnterOnForm(searchForm);
     }
 
+    @Step
     public void setStatusNotSeenToMovieIfItIsInList(String filmTitle) {
         if(movieBlock.isMoviePosterDisplayed(filmTitle.toLowerCase().replace(" ", "-"))){
             movieBlock.setStateToMovieSeenButton(filmTitle.toLowerCase().replace(" ", "-"), "unselect");

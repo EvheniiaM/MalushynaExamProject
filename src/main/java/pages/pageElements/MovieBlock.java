@@ -1,5 +1,7 @@
 package pages.pageElements;
 
+import io.qameta.allure.Step;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,31 +33,37 @@ public class MovieBlock extends CommonActionWithElements {
 //    @FindBy(xpath = ".//button[@title = 'Видалити оцінку']")
 //    private Button deleteRatingButton;
 
+    protected Logger logger = Logger.getLogger(getClass());
 
+    @Step
     public void setStateToMovieSeenButton(String filmTitle, String expectedState) {
         actionsWithOurElements.setStateToButton(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']", expectedState);
     }
 
+    @Step
     public void setStateToMovieWatchButton(String filmTitle, String expectedState) {
         actionsWithOurElements.setStateToButton(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Перегляну пізніше']", expectedState);
     }
 
+    @Step
     public boolean isMoviePosterDisplayed(String filmTitle) {
         return actionsWithOurElements.isElementDisplayed(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']");
     }
 
+    @Step
     public void rateFilm(String filmTitle, String rating) {
         actionsWithOurElements.clickOnElement(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../../div[@itemprop = 'aggregateRating']/div/div/i[@data-value = '" + rating + "']");
     }
 
+    @Step
     public void deleteMovieRating(String filmTitle) {
         WebElement deleteRatingButton = webDriver.findElement(By.xpath(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../../div[@itemprop = 'aggregateRating']/div/div/button"));
         boolean isRatingSet = actionsWithOurElements.isElementDisplayed(deleteRatingButton);
         if (isRatingSet) {
             actionsWithOurElements.clickOnElement(deleteRatingButton);
-            System.out.println("Rating was deleted");
+            logger.info("Rating was deleted");
         } else {
-            System.out.println("Rating is not set");
+            logger.info("Rating is not set");
         }
     }
 

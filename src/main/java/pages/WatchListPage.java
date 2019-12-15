@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -21,14 +22,17 @@ public class WatchListPage extends ParentPage {
         super(webDriver, "/@studentqalight2019/watchlist");
     }
 
+    @Step
     public void enterFilmTitleIntoSearchForm(String filmTitle){
         actionsWithOurElements.enterTextIntoInput(searchForm, filmTitle);
     }
 
+    @Step
     public void pressEnterOnSearchForm(){
         actionsWithOurElements.pressEnterOnForm(searchForm);
     }
 
+    @Step
     public void addMovieIfItIsNotInList(String filmTitle){
         ListsPage listsPage = new ListsPage(webDriver);
         MyListsPage myListsPage = new MyListsPage(webDriver);

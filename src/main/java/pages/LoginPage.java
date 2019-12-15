@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,6 +31,7 @@ public class LoginPage extends ParentPage {
         super(webDriver, "/");
     }
 
+    @Step
     public void openPage() {
         try {
             webDriver.get("https://kinobaza.com.ua/");
@@ -38,22 +40,27 @@ public class LoginPage extends ParentPage {
         }
     }
 
+    @Step
     public void enterLoginIntoInputLogin(String login) {
         actionsWithOurElements.enterTextIntoInput(loginInput,login);
     }
 
+    @Step
     public void enterPassIntoInputPassword(String password) {
         actionsWithOurElements.enterTextIntoInput(passwordInput, password);
     }
 
+    @Step
     public void clickOnSubmitButton() {
         actionsWithOurElements.clickOnElement(submitButton);
     }
 
+    @Step
     public boolean isAlertMessageDisplayed(){
         return actionsWithOurElements.isElementDisplayed(alertMessage);
     }
 
+    @Step
     public void fillingLoginFormAndSubmitIt(String login, String pass) {
         openPage();
         menu.clickOnEnterButton();

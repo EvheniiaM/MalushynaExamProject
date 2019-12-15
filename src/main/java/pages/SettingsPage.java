@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -32,14 +33,17 @@ public class SettingsPage extends ParentPage {
         super(webDriver, "/settings/profile");
     }
 
+    @Step
     public void enterStatusIntoStatusTextarea(String status) {
         actionsWithOurElements.enterTextIntoInput(statusTextarea, status);
     }
 
+    @Step
     public void clickOnSubmitButton() {
         actionsWithOurElements.clickOnElement(submitButton);
     }
 
+    @Step
     public void addAvatar(String filePath){
         actionsWithOurElements.enterTextIntoInput(avatarInput, filePath);
     }
@@ -48,10 +52,12 @@ public class SettingsPage extends ParentPage {
         return avatarImage.getAttribute("src");
     }
 
+    @Step
     public boolean isSuccessAlertDisplayed(){
         return actionsWithOurElements.isElementDisplayed(successAlert);
     }
 
+    @Step
     public void deleteStatus() {
         try {
             statusTextarea.clear();
@@ -62,6 +68,7 @@ public class SettingsPage extends ParentPage {
         }
     }
 
+    @Step
     public void setStateToRemoveFromWatchListAfterRateCheckbox(String expectedState){
         actionsWithOurElements.setStateToCheckBox(removeFromWachListAfterRateCheckbox, expectedState);
     }
