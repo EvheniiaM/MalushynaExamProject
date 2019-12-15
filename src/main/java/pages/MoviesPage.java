@@ -19,47 +19,33 @@ public class MoviesPage extends ParentPage {
         super(webDriver, "/movies");
     }
 
-    public void setStateToMovieSeenButton(String filmTitle, String expectedState){
-        actionsWithOurElements.setStateToButton(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']", expectedState);
-    }
-
-    public void setStateToMovieWatchButton(String filmTitle, String expectedState){
-        actionsWithOurElements.setStateToButton(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Перегляну пізніше']", expectedState);
-    }
-
-    public boolean isMoviePosterDisplayed(String filmTitle){
-        return actionsWithOurElements.isElementDisplayed(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']");
-    }
-
-//    public void isDeleteRatingButtonDisplayed(String filmTitle){
-//        actionsWithOurElements.isElementDisplayed( ".//a[@href = '/titles/"+ filmTitle +"']/../../div[@itemprop = 'aggregateRating']/div[4]/div/button[@title = 'Видалити оцінку']");
+//    public void setStateToMovieSeenButton(String filmTitle, String expectedState) {
+//        actionsWithOurElements.setStateToButton(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']", expectedState);
 //    }
-
-    public void rateFilm(String filmTitle, String rating){
-        actionsWithOurElements.clickOnElement(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) +"']/../../div[@itemprop = 'aggregateRating']/div/div/i[@data-value = '" + rating + "']");
-    }
-
-//    public void deleteRate(String filmTitle){
-//        actionsWithOurElements.deleteMovieRating(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) +"']/../../div[@itemprop = 'aggregateRating']/div/div/button");
-//    }
-
-    public void deleteMovieRating(String filmTitle){
-        WebElement deleteRatingButton = webDriver.findElement(By.xpath(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-" ) + "']/../../div[@itemprop = 'aggregateRating']/div/div/button"));
-        boolean isRatingSet = actionsWithOurElements.isElementDisplayed(deleteRatingButton);
-        if (isRatingSet){
-            actionsWithOurElements.clickOnElement(deleteRatingButton);
-            logger.info("Rating was deleted");
-        }else{
-            logger.info("Rating is not set");
-        }
-    }
-
-//    @FindBy(xpath = ".//a[@href = '/titles/home-alone']/../../div[@itemprop = 'aggregateRating']/div/div/button")
-//    private WebElement xButton;
 //
-//    public void isElementDisplayedTest(){
-//        actionsWithOurElements.isElementDisplayed(xButton);
-    }
+//    public void setStateToMovieWatchButton(String filmTitle, String expectedState) {
+//        actionsWithOurElements.setStateToButton(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Перегляну пізніше']", expectedState);
+//    }
+//
+//    public boolean isMoviePosterDisplayed(String filmTitle) {
+//        return actionsWithOurElements.isElementDisplayed(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']");
+//    }
+//
+//    public void rateFilm(String filmTitle, String rating) {
+//        actionsWithOurElements.clickOnElement(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../../div[@itemprop = 'aggregateRating']/div/div/i[@data-value = '" + rating + "']");
+//    }
+//
+//    public void deleteMovieRating(String filmTitle) {
+//        WebElement deleteRatingButton = webDriver.findElement(By.xpath(".//a[@href = '/titles/" + filmTitle.toLowerCase().replace(" ", "-") + "']/../../div[@itemprop = 'aggregateRating']/div/div/button"));
+//        boolean isRatingSet = actionsWithOurElements.isElementDisplayed(deleteRatingButton);
+//        if (isRatingSet) {
+//            actionsWithOurElements.clickOnElement(deleteRatingButton);
+//            logger.info("Rating was deleted");
+//        } else {
+//            logger.info("Rating is not set");
+//        }
+//    }
+}
 
 
 

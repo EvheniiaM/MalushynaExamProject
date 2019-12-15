@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
+import pages.pageElements.MovieBlock;
 import parentPage.ParentPage;
 
 public class MyListsPage extends ParentPage {
@@ -18,6 +19,7 @@ public class MyListsPage extends ParentPage {
 
     public Menu menu;
     public ListsMenu listsMenu;
+    public MovieBlock movieBlock;
 
     public MyListsPage(WebDriver webDriver, String partUrl) {
         super(webDriver, partUrl);

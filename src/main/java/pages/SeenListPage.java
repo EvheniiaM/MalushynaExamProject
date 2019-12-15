@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
+import pages.pageElements.MovieBlock;
 import parentPage.ParentPage;
 
 public class SeenListPage extends ParentPage {
@@ -14,6 +15,7 @@ public class SeenListPage extends ParentPage {
 
     public Menu menu;
     public ListsMenu listsMenu;
+    public MovieBlock movieBlock;
 
     public SeenListPage(WebDriver webDriver) {
         super(webDriver, "/@studentqalight2019/seenlist");
@@ -28,9 +30,8 @@ public class SeenListPage extends ParentPage {
     }
 
     public void setStatusNotSeenToMovieIfItIsInList(String filmTitle) {
-        MoviesPage moviesPage = new MoviesPage(webDriver);
-        if(moviesPage.isMoviePosterDisplayed(filmTitle.toLowerCase().replace(" ", "-"))){
-            moviesPage.setStateToMovieSeenButton(filmTitle.toLowerCase().replace(" ", "-"), "unselect");
+        if(movieBlock.isMoviePosterDisplayed(filmTitle.toLowerCase().replace(" ", "-"))){
+            movieBlock.setStateToMovieSeenButton(filmTitle.toLowerCase().replace(" ", "-"), "unselect");
             logger.info("Status was set to 'not seen'");
             listsMenu.clickOnSeenListButton();
         }else{

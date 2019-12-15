@@ -63,6 +63,6 @@ public class SettingsPage extends ParentPage {
     }
 
     public void setStateToRemoveFromWatchListAfterRateCheckbox(String expectedState){
-        actionsWithOurElements.setStateToCheckBox(removeFromWachListAfterRateCheckbox, "check");
+        actionsWithOurElements.setStateToCheckBox(removeFromWachListAfterRateCheckbox, expectedState);
     }
 }

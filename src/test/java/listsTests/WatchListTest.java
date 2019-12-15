@@ -19,7 +19,7 @@ public class WatchListTest extends AbstractParentTest {
 
         watchListPage.checkCurrentUrl();
         watchListPage.addMovieIfItIsNotInList(filmTitle);
-        moviesPage.deleteMovieRating(filmTitle);
+        watchListPage.movieBlock.deleteMovieRating(filmTitle);
         watchListPage.menu.clickOnUserMenu();
         watchListPage.menu.clickOnSettingsButton();
 
@@ -31,9 +31,39 @@ public class WatchListTest extends AbstractParentTest {
         settingsPage.menu.clickOnMyListsButton();
 
         myListsPage.listsMenu.clickOnWatchListButton();
-        moviesPage.rateFilm(filmTitle, "7");
+        myListsPage.movieBlock.rateFilm(filmTitle, "9");
         watchListPage.listsMenu.clickOnWatchListButton();
 
-        checkExpectedResult("Movie is still in the watch list",!moviesPage.isMoviePosterDisplayed(filmTitle));
+        checkExpectedResult("Movie is still in the watch list",!watchListPage.movieBlock.isMoviePosterDisplayed(filmTitle));
+    }
+
+    @Test
+    public void movieDoesNotDisappearsFromWatchListAfterRate() {
+        loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
+
+        homePage.menu.clickOnUserMenu();
+        homePage.menu.clickOnMyListsButton();
+
+        myListsPage.checkCurrentUrl();
+        myListsPage.listsMenu.clickOnWatchListButton();
+
+        watchListPage.checkCurrentUrl();
+        watchListPage.addMovieIfItIsNotInList(filmTitle);
+        watchListPage.movieBlock.deleteMovieRating(filmTitle);
+        watchListPage.menu.clickOnUserMenu();
+        watchListPage.menu.clickOnSettingsButton();
+
+        settingsPage.checkCurrentUrl();
+        settingsPage.setStateToRemoveFromWatchListAfterRateCheckbox("uncheck");
+        settingsPage.clickOnSubmitButton();
+        checkExpectedResult("Success alert is not present", settingsPage.isSuccessAlertDisplayed());
+        settingsPage.menu.clickOnUserMenu();
+        settingsPage.menu.clickOnMyListsButton();
+
+        myListsPage.listsMenu.clickOnWatchListButton();
+        myListsPage.movieBlock.rateFilm(filmTitle, "9");
+        watchListPage.listsMenu.clickOnWatchListButton();
+
+        checkExpectedResult("Movie disappeared from the list", watchListPage.movieBlock.isMoviePosterDisplayed(filmTitle));
     }
 }

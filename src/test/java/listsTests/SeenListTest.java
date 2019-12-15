@@ -21,22 +21,23 @@ public class SeenListTest extends AbstractParentTest {
         seenListPage.checkCurrentUrl();
         seenListPage.setStatusNotSeenToMovieIfItIsInList(filmTitle);
 
-        checkExpectedResult("Movie is still in the list",!moviesPage.isMoviePosterDisplayed(filmTitle));
+        checkExpectedResult("Movie is still in the list",!seenListPage.movieBlock.isMoviePosterDisplayed(filmTitle));
 
         seenListPage.menu.clickOnSearchButton();
         seenListPage.enterFilmTitleIntoSearchForm(filmTitle);
         seenListPage.pressEnterOnSearchForm();
 
-        moviesPage.setStateToMovieSeenButton(filmTitle, "select");
-        moviesPage.menu.clickOnListsButton();
+        searchPage.movieBlock.setStateToMovieSeenButton(filmTitle, "select");
+        searchPage.menu.clickOnListsButton();
 
         listsPage.checkCurrentUrl();
         listsPage.clickOnMyListsButton();
 
+        myListsPage.checkCurrentUrl();
         myListsPage.listsMenu.clickOnSeenListButton();
 
         seenListPage.checkCurrentUrl();
-        checkExpectedResult(filmTitle + " poster is not displayed" , moviesPage.isMoviePosterDisplayed(filmTitle));
+        checkExpectedResult(filmTitle + " poster is not displayed" , seenListPage.movieBlock.isMoviePosterDisplayed(filmTitle));
     }
 
     @After

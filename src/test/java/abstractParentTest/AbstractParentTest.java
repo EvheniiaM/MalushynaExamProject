@@ -24,6 +24,7 @@ public class AbstractParentTest {
     protected SeenListPage seenListPage;
     protected MoviesPage moviesPage;
     protected WatchListPage watchListPage;
+    protected SearchPage searchPage;
 
     @Before
     public void setUp() throws Exception {
@@ -43,6 +44,7 @@ public class AbstractParentTest {
         seenListPage = new SeenListPage(webDriver);
         moviesPage = new MoviesPage(webDriver);
         watchListPage = new WatchListPage(webDriver);
+        searchPage = new SearchPage(webDriver);
     }
 
     private WebDriver driverInit() throws Exception {
@@ -53,9 +55,6 @@ public class AbstractParentTest {
         } else if ("firefox".equalsIgnoreCase(browser)){
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
-//        }else if ("ie".equalsIgnoreCase(browser)){
-//            WebDriverManager.iedriver().setup();
-//            return new InternetExplorerDriver();
         }else if ("opera".equalsIgnoreCase(browser)){
             WebDriverManager.operadriver().setup();
             return new OperaDriver();

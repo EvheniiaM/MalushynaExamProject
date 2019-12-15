@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
+import pages.pageElements.MovieBlock;
 import parentPage.ParentPage;
 
 public class WatchListPage extends ParentPage {
@@ -14,6 +15,7 @@ public class WatchListPage extends ParentPage {
 
     public Menu menu;
     public ListsMenu listsMenu;
+    public MovieBlock movieBlock;
 
     public WatchListPage(WebDriver webDriver) {
         super(webDriver, "/@studentqalight2019/watchlist");
@@ -28,22 +30,19 @@ public class WatchListPage extends ParentPage {
     }
 
     public void addMovieIfItIsNotInList(String filmTitle){
-        MoviesPage moviesPage = new MoviesPage(webDriver);
         ListsPage listsPage = new ListsPage(webDriver);
-        if(!moviesPage.isMoviePosterDisplayed(filmTitle)){
+        MyListsPage myListsPage = new MyListsPage(webDriver);
+        if(!movieBlock.isMoviePosterDisplayed(filmTitle)){
             menu.clickOnSearchButton();
             enterFilmTitleIntoSearchForm(filmTitle);
             pressEnterOnSearchForm();
-            moviesPage.setStateToMovieWatchButton(filmTitle, "select");
+            movieBlock.setStateToMovieWatchButton(filmTitle, "select");
             logger.info("Movie was added to watchlist");
             menu.clickOnListsButton();
             listsPage.clickOnMyListsButton();
-            listsPage.listsMenu.clickOnWatchListButton();
+            myListsPage.listsMenu.clickOnWatchListButton();
         }else{
             logger.info("Movie is already in the list");
         }
-
-
-
     }
 }
