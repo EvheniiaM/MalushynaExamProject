@@ -2,21 +2,23 @@ package pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.pageElements.Menu;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Button;
+import ru.yandex.qatools.htmlelements.element.Link;
+import ru.yandex.qatools.htmlelements.element.TextInput;
 
 public class CreateListsPage extends ParentPage {
 
     @FindBy(xpath = ".//input[@id = 'title']")
-    private WebElement titleInput;
+    private TextInput titleInput;
 
     @FindBy(xpath = ".//button[@type = 'submit']")
-    private WebElement createListButton;
+    private Button createListButton;
 
     @FindBy(xpath = ".//div[@class = 'alert alert-success alert-dismissible']")
-    private WebElement successAlert;
+    private Link successAlert;
 
     public Menu menu;
 

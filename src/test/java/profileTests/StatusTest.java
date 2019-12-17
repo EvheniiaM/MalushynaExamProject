@@ -12,7 +12,7 @@ public class StatusTest extends AbstractParentTest {
 
     @Test
     public void changeStatus() {
-        loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
+        homePage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
         homePage.menu.clickOnUserMenu();
         homePage.menu.clickOnSettingsButton();

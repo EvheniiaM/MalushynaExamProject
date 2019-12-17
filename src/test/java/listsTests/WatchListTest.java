@@ -9,7 +9,7 @@ public class WatchListTest extends AbstractParentTest {
 
     @Test
     public void movieDisappearsFromWatchListAfterRate(){
-        loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
+        homePage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
         homePage.menu.clickOnUserMenu();
         homePage.menu.clickOnMyListsButton();
@@ -39,7 +39,7 @@ public class WatchListTest extends AbstractParentTest {
 
     @Test
     public void movieDoesNotDisappearsFromWatchListAfterRate() {
-        loginPage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
+        homePage.fillingLoginFormAndSubmitIt("studentqalight2019@gmail.com", "123456789");
 
         homePage.menu.clickOnUserMenu();
         homePage.menu.clickOnMyListsButton();

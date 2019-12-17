@@ -17,6 +17,3 @@ public class CommonActionWithElements extends HtmlElement implements WebDriverAw
 
 
 
-
-
-//правой кнопкой, имплементировать метод

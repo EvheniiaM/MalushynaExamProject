@@ -22,7 +22,7 @@ public class ActionsWithOurElements {
         try {
             webElement.clear();
             webElement.sendKeys(text);
-            logger.info(text + " was inputted into input");
+            logger.info(text + " was inputted into input " + getElementName(webElement));
         } catch (Exception e) {
             stopTestAndPrintMessage();
         }
@@ -49,10 +49,10 @@ public class ActionsWithOurElements {
     public boolean isElementDisplayed(WebElement webElement) {
         try {
             boolean state = webElement.isDisplayed();
-            logger.info("Is element displayed -> " + state);
+            logger.info("Is element " + getElementName(webElement) + " displayed -> " + state);
             return state;
         } catch (Exception e) {
-            logger.info("Is element displayed -> false");
+            logger.info("Is element " + getElementName(webElement) + "  displayed -> false");
             return false;
         }
     }
@@ -150,9 +150,10 @@ public class ActionsWithOurElements {
 
         if (isStateCheck || isStateUnCheck) {
             if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)) {
-                logger.info("Checkbox is already in needed state");
+                logger.info("Checkbox " + getElementName(checkBox) + " is already in needed state");
             } else {
                 clickOnElement(checkBox);
+                logger.info("Checkbox " + getElementName(checkBox) + " was checked");
             }
         } else {
             logger.error("State should be only check or uncheck");

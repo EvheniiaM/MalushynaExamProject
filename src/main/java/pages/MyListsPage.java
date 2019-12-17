@@ -9,14 +9,15 @@ import pages.pageElements.ListsMenu;
 import pages.pageElements.Menu;
 import pages.pageElements.MovieBlock;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.Button;
 
 public class MyListsPage extends ParentPage {
 
     @FindBy(xpath = ".//a[@href = '/lists/create']")
-    private WebElement createListButton;
+    private Button createListButton;
 
     @FindBy(xpath = ".//button[@class = 'dropdown-item js-delete-item']")
-    private WebElement deleteListButton;
+    private Button deleteListButton;
 
     public Menu menu;
     public ListsMenu listsMenu;

@@ -23,7 +23,7 @@ public class ParentPage {
     public ParentPage(WebDriver webDriver, String partUrl) {
         this.webDriver = webDriver;
         baseUrl = configProperties.base_url();
-//
+
         PageFactory.initElements(new WebDriverAwareDecorator(new HtmlElementLocatorFactory(webDriver), webDriver), this);
         actionsWithOurElements = new ActionsWithOurElements(webDriver);
         expectedUrl = baseUrl + partUrl;

@@ -7,26 +7,28 @@ public class LoginTest extends AbstractParentTest {
 
     @Test
     public void validLogin() {
-        loginPage.openPage();
-        loginPage.menu.clickOnEnterButton();
-        loginPage.enterLoginIntoInputLogin("studentqalight2019@gmail.com");
-        loginPage.enterPassIntoInputPassword("123456789");
-        loginPage.clickOnSubmitButton();
+        homePage.openPage();
+        homePage.menu.clickOnEnterButton();
+        homePage.loginWindow.enterLoginIntoInputLogin("studentqalight2019@gmail.com");
+        homePage.loginWindow.enterPassIntoInputPassword("123456789");
+        homePage.loginWindow.clickOnSubmitButton();
 
         checkExpectedResult("User menu button is not present", homePage.menu.isUserMenuDisplayed());
     }
 
     @Test
-    public void invalidLogin(){
-        loginPage.openPage();
-        loginPage.menu.clickOnEnterButton();
-        loginPage.enterLoginIntoInputLogin("");
-        loginPage.enterPassIntoInputPassword("");
-        loginPage.clickOnSubmitButton();
+    public void invalidLogin() {
+        homePage.openPage();
+        homePage.menu.clickOnEnterButton();
+        homePage.loginWindow.enterLoginIntoInputLogin("");
+        homePage.loginWindow.enterPassIntoInputPassword("");
+        homePage.loginWindow.clickOnSubmitButton();
 
-        checkExpectedResult("Allert message is not present", loginPage.isAlertMessageDisplayed());
-        checkExpectedResult("Enter button is not present", loginPage.menu.isEnterButtonDisplayed());
+        checkExpectedResult("Allert message is not present", homePage.isAlertMessageDisplayed());
+        checkExpectedResult("Enter button is not present", homePage.menu.isEnterButtonDisplayed());
     }
+
+
 }
 
 

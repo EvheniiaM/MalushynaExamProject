@@ -6,26 +6,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.pageElements.Menu;
 import parentPage.ParentPage;
+import ru.yandex.qatools.htmlelements.element.*;
 
 public class SettingsPage extends ParentPage {
 
     @FindBy(xpath = ".//textarea[@ name = 'status']")
-    private WebElement statusTextarea;
+    private TextInput statusTextarea;
 
     @FindBy(xpath = ".//button[@type = 'submit']")
-    private WebElement submitButton;
+    private Button submitButton;
 
     @FindBy(xpath = ".//input[@type = 'file']")
-    private WebElement avatarInput;
+    private FileInput avatarInput;
 
     @FindBy(xpath = ".//form[@enctype = 'multipart/form-data']/img")
-    private WebElement avatarImage;
+    private Image avatarImage;
 
     @FindBy(xpath = ".//input[@name= 'remove_watchlist_after_rate']")
-    private WebElement removeFromWachListAfterRateCheckbox;
+    private CheckBox removeFromWachListAfterRateCheckbox;
 
     @FindBy(xpath = ".//div[@class = 'alert alert-success alert-dismissible']")
-    private WebElement successAlert;
+    private Link successAlert;
 
     public Menu menu;
 

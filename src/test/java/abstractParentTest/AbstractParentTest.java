@@ -24,7 +24,6 @@ import java.util.concurrent.TimeUnit;
 
 public class AbstractParentTest {
     WebDriver webDriver;
-    protected LoginPage loginPage;
     protected HomePage homePage;
     protected ProfilePage profilePage;
     protected SettingsPage settingsPage;
@@ -46,7 +45,6 @@ public class AbstractParentTest {
         webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-        loginPage = new LoginPage(webDriver);
         homePage = new HomePage(webDriver);
         profilePage = new ProfilePage(webDriver);
         settingsPage = new SettingsPage(webDriver);

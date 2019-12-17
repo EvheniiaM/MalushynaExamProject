@@ -1,3 +1,57 @@
+#Menu
+Menu.Logo.Button = xpath(".//a[@class = 'navbar-brand']")
+Menu.Posts.Button = xpath(".//a[@class = 'nav-link' and @href = '/posts']")
+Menu.AllMovies.Dropdown = xpath(".//a[@id = 'navbarDropdownTitles']")
+Menu.Reviews.Button = xpath(".//a[@href= '/reviews']")
+Menu.Trailer.Button = xpath(".//a[@href= '/trailers']")
+Menu.Lists.Button = xpath(".//a[@href= '/lists']")
+Menu.Forum.Button = xpath(".//a[@href= '/forum']")
+Menu.Search.Button = xpath(".//a[@id = 'js-showSearchBar']")
+Menu.Notifications.Button = xpath(".//a[@href= '/notifications']")
+Menu.Enter.Button = xpath(".//a[@href = '/login']")
+Menu.User.Menu = xpath(".//a[@id='navbarDropdownUser']")
+Menu.Profile.Button = xpath(".//a[@href='https://kinobaza.com.ua/@studentqalight2019']")
+Menu.Settings.Button = xpath(".//a[@href='/settings/profile']")
+Menu.MyLists.Button = xpath(".//a[@href='https://kinobaza.com.ua/@studentqalight2019/lists']")
+
+#ListsMenu
+ListsMenu.WatchList.Button = xpath(".//a[@href = 'https://kinobaza.com.ua/@studentqalight2019/watchlist']")
+ListsMenu.SeenList.Button = xpath(".//a[@href = 'https://kinobaza.com.ua/@studentqalight2019/seenlist']")
+ListsMenu.MyLists.Button = xpath(".//.//a[@href = 'https://kinobaza.com.ua/@studentqalight2019/watchlist']/../a[@href = 'https://kinobaza.com.ua/@studentqalight2019/lists']")
+
+#MovieBlock
+MovieBlock.Poster.Image = xpath(".//a[@class = 'poster-wrapper']")
+MovieBlock.Watch.Button = xpath(".//div[@title = 'Перегляну пізніше']")
+MovieBlock.Favorite.Button = xpath(".//div[@title = 'Улюблений']")
+MovieBlock.Seen.Button = xpath(".//div[@title = 'Бачив']")
+MovieBlock.Blacklist.Button = xpath(".//div[@title = 'Не цікавить']")
+MovieBlock.AddToList.Button = xpath(".//div[@title = 'Додати до списку']")
+MovieBlock.Rating10.Button = xpath(".//i[@data-value = '10']")
+MovieBlock.DeleteRating.Button = xpath(".//button[@title = 'Видалити оцінку']")
+
+#CreateLists
+CreateLists.Title.Input = xpath(".//input[@id = 'title']")
+CreateLists.CreateList.Button = xpath(".//button[@type = 'submit']")
+CreateLists.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
+
+#Lists
+Lists.myListsButton = xpath( ".//a[@class = 'btn btn-primary btn-block']")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Login
 Login.Enter.Button = xpath(".//a[@href = '/login']")
 Login.Enter.Window = xpath(".//div[@class = 'modal-dialog']")
