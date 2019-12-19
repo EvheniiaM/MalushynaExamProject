@@ -29,70 +29,48 @@ MovieBlock.AddToList.Button = xpath(".//div[@title = 'Додати до спис
 MovieBlock.Rating10.Button = xpath(".//i[@data-value = '10']")
 MovieBlock.DeleteRating.Button = xpath(".//button[@title = 'Видалити оцінку']")
 
-#CreateLists
-CreateLists.Title.Input = xpath(".//input[@id = 'title']")
-CreateLists.CreateList.Button = xpath(".//button[@type = 'submit']")
-CreateLists.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
-
-#Lists
-Lists.myListsButton = xpath( ".//a[@class = 'btn btn-primary btn-block']")
+#LoginWindow
+LoginWindow.Login.Input = xpath(".//input[@id = 'loginModalEmail']")
+LoginWindow.Password.Input = xpath(".//input[@id = 'loginModalPassword']")
+LoginWindow.Submit.Button = xpath(".//button[@type = 'submit']")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Login
-Login.Enter.Button = xpath(".//a[@href = '/login']")
-Login.Enter.Window = xpath(".//div[@class = 'modal-dialog']")
-Login.Email.Input = xpath(".//input[@id = 'loginModalEmail']")
-Login.Password.Input = xpath(".//input[@id = 'loginModalPassword']")
-Login.RememberMe.Checkbox = xpath(".//input[@type = 'checkbox']")
-Login.Close.Button = xpath(".//button[@class= 'close']")
-Login.Submit.Button = xpath(".//button[@type = 'submit']")
-
-#UserMenu
-UserMenu.User.Button = xpath(".//a[@id='navbarDropdownUser']")
-UserMenu.Avatar.Img = xpath(".//a[@id= 'navbarDropdownUser']/img")
-UserMenu.MyProfile.Button = xpath(".//a[@href='https://kinobaza.com.ua/@studentqalight2019']")
-UserMenu.Settings.Button = xpath(".//a[@href='/settings/profile']")
-UserMenu.MyLists.Button = xpath(".//a[@href='https://kinobaza.com.ua/@studentqalight2019/lists']")
-UserMenu.Logout.Button = xpath(".//a[@href='/logout']")
+#CreateListsPage
+CreateListsPage.Title.Input = xpath(".//input[@id = 'title']")
+CreateListsPage.CreateList.Button = xpath(".//button[@type = 'submit']")
+CreateListsPage.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
 
 #HomePage
-HomePage.Search.Button = xpath(".//a[@id = 'js-showSearchBar']")
-HomePage.Search.Form = xpath(".//div[@class = 'container d-none d-lg-block']/div/form/span/input[@class = 'form-control form-control-lg js-typehead tt-input']")
+HomePage.Alert.Message = xpath(".//div[@class = 'alert alert-danger']")
+
+#ListsPage
+ListsPage.myListsButton = xpath(".//a[@class = 'btn btn-primary btn-block']")
+
+#MyListsPage
+MyListsPage.CreateList.Button = xpath(".//a[@href = '/lists/create']")
+MyListsPage.DeleteList.Button = xpath(".//button[@class = 'dropdown-item js-delete-item']")
+
+#ProfilePage
+ProfilePage.Status.Input = xpath(".//a[contains(text(),'Інформація')]/../following-sibling::text()[1]")
+ProfilePage.Status.Block = xpath(".//nav[@aria-label = 'breadcrumb']/..")
+
+#SettingsPage
+SettingsPage.Ыtatus.Textarea = xpath(".//textarea[@ name = 'status']")
+SettingsPage.Submit.Button = xpath(".//button[@type = 'submit']")
+SettingsPage.Avatar.Input = xpath(".//input[@type = 'file']")
+SettingsPage.Avatar.Image = xpath(".//form[@enctype = 'multipart/form-data']/img")
+SettingsPage.RemoveFromWachListAfterRate.Checkbox = xpath(".//input[@name= 'remove_watchlist_after_rate']")
+SettingsPage.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
+
+#WatchListPage
+WatchListPage.Search.Form = xpath(".//div[@class = 'container d-none d-lg-block']/div/form/span/input[@class = 'form-control form-control-lg js-typehead tt-input']")
 
 
-#Settings
-Settings.Status.Textarea = xpath(".//textarea[@ name = 'status']")
-Settings.Submit.Button = xpath(".//button[@type = 'submit']")
-Settings.ChangeAvatar.Input = xpath(".//input[@type = 'file']")
-Settings.Avatar.Img = xpath(".//form[@enctype = 'multipart/form-data']/img")
-Settings.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
-
-#Lists
-Lists.CreateList.Button = xpath(".//a[@href = '/lists/create']")
-Lists.MyLists.Button = xpath(".//a[@class = 'btn btn-primary btn-block']")
-
-#CreateList
-CreateList.Title.Input = xpath(".//input[@id = 'title']")
-CreateList.CreateList.Button = xpath(".//button[@type = 'submit']")
-CreateList.Success.Alert = xpath(".//div[@class = 'alert alert-success alert-dismissible']")
-
-#Titles
-Titles.TheShawshankRedemption.SeenButton = xpath(".//a[@href = '/titles/the-shawshank-redemption']/../div[@aria-label = 'Оцінити та/або додати в список']/div[@title = 'Бачив']")
 
 
-//.//a[@title = 'Christmas selection2019-11-30_21-19-47']/../../div[@class = 'dropdown float-right']
-//"/Users/user227/Downloads/avatar.jpg"
+
+
+
+
+
+
