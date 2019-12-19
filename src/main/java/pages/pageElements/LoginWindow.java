@@ -25,7 +25,6 @@ public class LoginWindow extends CommonActionWithElements {
     @Step
     public void enterPassIntoInputPassword(String password) {
         actionsWithOurElements.enterTextIntoInput(passwordInput, password);
-        
     }
 
     @Step

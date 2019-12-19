@@ -70,6 +70,7 @@ public class ActionsWithOurElements {
         }
     }
 
+
     public void clickOnElement(String xpath) {
         try {
             clickOnElement(webDriver.findElement(By.xpath(xpath)));
@@ -95,17 +96,6 @@ public class ActionsWithOurElements {
         }
     }
 
-//    public void deleteMovieRating(String filmTitle){
-//        WebElement deleteRatingButton = webDriver.findElement(By.xpath(".//a[@href = '/titles/" + filmTitle + "']/../../div[@itemprop = 'aggregateRating']/div/div/button"));
-//        boolean isRatingSet = isElementDisplayed(deleteRatingButton);
-//        if (isRatingSet){
-//            clickOnElement(deleteRatingButton);
-//            logger.info("Rating was deleted");
-//        }else{
-//            logger.info("Rating is not set");
-//        }
-//    }
-
     public void acceptAlert() {
         try {
             webDriverWait_10.until(ExpectedConditions.alertIsPresent());
@@ -126,23 +116,6 @@ public class ActionsWithOurElements {
         }
     }
 
-//    public void setStateToCheckBox(WebElement checkBox, String state) {
-//        boolean isStateCheck = state.toLowerCase().equals("check");
-//        boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
-//        boolean isCheckBoxSelected = checkBox.isSelected();
-//
-//        if (isStateCheck || isStateUnCheck) {
-//            if ((isStateCheck && isCheckBoxSelected) || (isStateUnCheck && !isCheckBoxSelected)) {
-//                logger.info("Checkbox is already in needed state");
-//            } else if ((isStateCheck && !isCheckBoxSelected) || (isStateUnCheck && isCheckBoxSelected)) {
-//                clickOnElement(checkBox);
-//            }
-//        } else {
-//            logger.error("State should be only check or uncheck");
-//            stopTestAndPrintMessage();
-//        }
-//    }
-
     public void setStateToCheckBox(WebElement checkBox, String state) {
         boolean isStateCheck = state.toLowerCase().equals("check");
         boolean isStateUnCheck = state.toLowerCase().equals("uncheck");
@@ -160,31 +133,4 @@ public class ActionsWithOurElements {
             stopTestAndPrintMessage();
         }
     }
-
-//        public void setStateToCheckBox(WebElement checkbox, String expectedState) {
-//        try {
-//            if (expectedState == "check") {
-//                if (!checkbox.isSelected()) {
-//                    checkbox.click();
-//                    logger.info("Checkbox was checked");
-//                } else {
-//                    logger.info("Checkbox is already checked");
-//                }
-//            } else if (expectedState == "uncheck") {
-//                if (checkbox.isSelected()) {
-//                    checkbox.click();
-//                    logger.info("Checkbox was unchecked");
-//                } else {
-//                    logger.info("Checkbox is already unchecked");
-//                }
-//            } else {
-//                logger.error("Incorrect expected state: state should be check or uncheck");
-//            }
-//        } catch (Exception e) {
-//            stopTestAndPrintMessage();
-//        }
-//    }
-
-
-
 }
