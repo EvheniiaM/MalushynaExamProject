@@ -15,4 +15,3 @@ target/site
 *.iws
 .allure
 
-/log/qalight.log.1
