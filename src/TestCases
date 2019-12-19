@@ -5,8 +5,8 @@ Preconditions:
 
 Steps:
 1. Click on Enter button in the top right corner
-2. In field Email enter 'studentqalight2019@gmail.com'
-3. In field Password enter '123456789'
+2. In field Email enter valid login
+3. In field Password enter valid password
 4. Click on Submit button -> User menu button is present
 
 
@@ -17,8 +17,8 @@ Preconditions:
 
 Steps:
 1. Click on Enter button in the top right corner
-2. In field Email enter ''
-3. In field Password enter ''
+2. In field Email enter invalid login
+3. In field Password enter invalid password
 4. Click on Submit button -> Enter button and alert message are displayed
 
 
@@ -101,7 +101,7 @@ Steps:
 6. Click on Submit button in Settings form -> Success alert is present, Avatar was changed
 
 
--------Movie disappears from Watch List after rate-------
+-------Movie disappears from Watch List after rate (With selected "Remove from Watch list after rate" checkbox)-------
 Preconditions:
 1. User should be logged in
 
@@ -129,6 +129,32 @@ Steps:
 14. Click on Watch List button in lists menu -> Movie poster is not displayed
 
 
+-------Movie does not disappears from Watch List after rate (With unselected "Remove from Watch list after rate" checkbox)-------
+Preconditions:
+1. User should be logged in
+
+Steps:
+1. Click on User Menu button in the top right corner
+2. Click on My Lists submenu -> redirect to My Lists page
+3. Click on Watch List button in lists menu -> redirect to Watch List page
+4. If test movie is not in list:
+    - Click on Search button
+    - Enter film title into Search form
+    - Press enter
+    - Click on movie watch button
+    - Click on Lists button in the top menu
+    - Click on My Lists button
+    - Click on Watch List button in lists menu
+5. Delete movie rating
+6. Click on User Menu button in the top right corner
+7. Click on Settings submenu -> redirect to Settings page
+8. Uncheck 'Remove from Watch List after rate' checkbox
+9. Click on Submit button
+10. Click on User Menu button in the top right corner
+11. Click on My Lists submenu
+12. Click on Watch List button in lists menu
+13. Rate movie
+14. Click on Watch List button in lists menu -> Movie poster is displayed
 
 
 

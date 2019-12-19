@@ -3,8 +3,6 @@ package abstractParentTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
-import libs.ConfigProperties;
-import org.aeonbits.owner.ConfigFactory;
 import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
