@@ -45,7 +45,7 @@ public class SettingsPage extends ParentPage {
 
     @Step
     public void addAvatar(String filePath){
-        actionsWithOurElements.enterTextIntoInput(avatarInput, filePath);
+        actionsWithOurElements.enterTextIntoInputWithoutWait(avatarInput, filePath);
     }
 
     public String getAvatarSrc(){

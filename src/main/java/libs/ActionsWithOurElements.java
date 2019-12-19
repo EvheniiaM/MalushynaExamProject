@@ -20,6 +20,17 @@ public class ActionsWithOurElements {
 
     public void enterTextIntoInput(WebElement webElement, String text) {
         try {
+            webDriverWait_15.until(ExpectedConditions.visibilityOf(webElement));
+            webElement.clear();
+            webElement.sendKeys(text);
+            logger.info(text + " was inputted into input " + getElementName(webElement));
+        } catch (Exception e) {
+            stopTestAndPrintMessage();
+        }
+    }
+
+    public void enterTextIntoInputWithoutWait(WebElement webElement, String text) {
+        try {
             webElement.clear();
             webElement.sendKeys(text);
             logger.info(text + " was inputted into input " + getElementName(webElement));
